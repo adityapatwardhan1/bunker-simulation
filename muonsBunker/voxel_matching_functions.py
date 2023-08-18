@@ -8,8 +8,6 @@ from geant4_pybind import *
 def percent_voxels_matching(filename, mu_tot, voxel_size, min_x, max_x, min_y, max_y, min_z, max_z):
     correct_num_voxels = round((max_x - min_x) / voxel_size) * round((max_y - min_y) / voxel_size) * round((max_z - min_z) / voxel_size) # Should it be round or ceil or floor, need voxel side length that is factor of cube side length
     all_voxels_with_object = voxelize(filename, mu_tot, voxel_size)[0]
-    print("voxelsize = "+str(voxel_size))
-    print(correct_num_voxels)
     counted_voxels_in_bounds = 0
     counted_voxels_outside_bounds = 0
     for key in all_voxels_with_object.keys():
@@ -17,8 +15,6 @@ def percent_voxels_matching(filename, mu_tot, voxel_size, min_x, max_x, min_y, m
             counted_voxels_in_bounds += 1
         else:
             counted_voxels_outside_bounds += 1
-    print(counted_voxels_in_bounds)
-    print(counted_voxels_outside_bounds)
     # Overlap of correct and simulated set * 2 / union of all voxels correct and incorrect, as %
     # Weird metric but it is necessary to account for externally accidentally counted voxels
     return 100 * (2 * counted_voxels_in_bounds) / (correct_num_voxels + counted_voxels_in_bounds + counted_voxels_outside_bounds)
