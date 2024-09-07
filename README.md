@@ -58,7 +58,7 @@ sudo apt install texlive-latex-recommended texlive-latex-extra
 ## Cloning the Repository and Setup
 Clone this repository:
 ```
-git clone git@codeberg.org:AdityaPatwardhan/bunker-simulation.git
+git clone https://github.com/adityapatwardhan1/bunker-simulation.git
 ```
 Make the cloned repository a subfolder inside geant4_pybind
 
