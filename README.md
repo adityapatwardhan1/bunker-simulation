@@ -57,7 +57,7 @@ pip3 install numpy
 
 To install Matplotlib, run:
 ```
-pip install matplotlib
+pip3 install matplotlib
 ```
 
 To compile the paper and slide presentation, one needs to convert LaTeX files into PDFs. To install the required packages, run
