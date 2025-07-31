@@ -1,5 +1,7 @@
 import math
 from decimal import *
+import numpy as np
+
 # p1 and p2 are the points, d1 and d2 are the direction vectors
 # each trajectory is represented by a point p on it, and a direction
 # vector d
@@ -42,24 +44,15 @@ def POCA(p1, d1, p2, d2):
     return tuple(closest_approach)
 
 def angleBetween(v1, v2):
-
-    dotProd = 0
-    for i in range(len(v1)):
-        dotProd += v1[i]*v2[i]
-    divBy = math.sqrt((v1[0]*v1[0]+
-                       v1[1]*v1[1]+
-                       v1[2]*v1[2])*
-                      (v2[0]*v2[0]
-                       +v2[1]*v2[1]
-                       +v2[2]*v2[2]))
-    angle = math.degrees(math.acos(dotProd/divBy))
+    v1 = np.array(v1)
+    v2 = np.array(v2)
+    angle = math.degrees(math.acos(np.dot(v1, v2)/(np.linalg.norm(v1)*np.linalg.norm(v2))))
     if angle > 90:
         angle = 180-angle
     return angle
 
 def subtract(v1, v2):
-
-    return tuple([v1[i]-v2[i] for i in range(3)])
+    return tuple(np.array(v1) - np.array(v2))
 
 def test():
     print(POCA((1,1,1),(-1,1,1),(1,1,1),(1,1,1)))
@@ -67,4 +60,5 @@ def test():
     print(angleBetween((1,1,1),(-1,-1,-1)))
     print(angleBetween((2,4,5),(-2,6,-4)))
 
-#test()
+if __name__ == '__main__':
+    test()

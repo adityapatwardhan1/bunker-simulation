@@ -7,7 +7,7 @@ In a world where many countries have nuclear weapons, non-proliferation efforts 
 The LaTeX code to build a paper and slide presentation explaining this work are included in this repository.
 
 ## Prerequisites
-To run this simulation, one needs a Python3 interpreter, the Python package manager Pip, Gnuplot, and the Geant4 library and its Python binding.
+To run this simulation, one needs a Python3 interpreter, the Python package manager Pip, Gnuplot, the Geant4 library and its Python binding, NumPy, and Matplotlib.
 
 In the Debian distribution of Linux, one can install the Python3 interpreter by running
 ```
@@ -49,6 +49,16 @@ Install geant4_pybind (Python binding for Geant4):
 pip3 install geant4-pybind
 ```
 A folder called geant4_pybind should be created.
+
+To install NumPy, run:
+```
+pip3 install numpy
+```
+
+To install Matplotlib, run:
+```
+pip install matplotlib
+```
 
 To compile the paper and slide presentation, one needs to convert LaTeX files into PDFs. To install the required packages, run
 ```

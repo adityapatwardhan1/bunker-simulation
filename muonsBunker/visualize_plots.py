@@ -6,7 +6,6 @@ def plot_images(voxel_file):
     """
     Plot 2D and 3D images of scattering points with their scattering angle
     :param voxel_file: Path to the voxels file
-
     """
 
     df = pd.read_csv(voxel_file, comment='#', header=None)
@@ -43,6 +42,11 @@ def plot_images(voxel_file):
 
 
 def plot_accuracy(hit_percentages_file):
+    """
+    Plot graph of voxel overlap Dice-Sorensen coefficient vs image resolution
+    :param hit_percentages_file: Path to the file with hit percentages (really Dice-Sorensen coefficients)
+    """
+
     df = pd.read_csv(hit_percentages_file)
     
     # Get x, y, z coordinates and scattering angle
